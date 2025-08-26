@@ -1,9 +1,11 @@
-﻿// Esto es un comentario en una sola línea
+﻿using DemoConsola;
+// Esto es un comentario en una sola línea
 /* Esto es un comentario 
  * de múltiples líneas
  */
 
 // Variables
+
 var variable = "Cualquier valor";
 bool esActivo = false;
 short enteroCorto = 9;
@@ -110,10 +112,53 @@ long factorial(int numero) {
 }
 
 Console.Write("Ingrese un número para obtener los primieros N factoriales: ");
-int numero = int.Parse(Console.ReadLine());
+int numero = 1; //int.Parse(Console.ReadLine());
 for (int i = 1; i <= numero; i++)
 {
     Console.WriteLine($"El factorial de {i} es {factorial(i)}");
 }
 
 Console.WriteLine(materia);
+
+// POO
+Persona persona = new Persona();
+persona.cedulaIdentidad = "123456";
+persona.nombres = "Juan";
+persona.primerApellido = "Pérez";
+persona.segundoApellido = "López";
+persona.fechaNacimiento = new DateOnly(2000, 8, 30);
+persona.celular = 71717171;
+persona.saludar();
+Console.WriteLine($"Edad: {persona.calcularEdad()}");
+
+Estudiante estudiante = new Estudiante();
+estudiante.cedulaIdentidad = "654321";
+estudiante.carnetUniversitario = "26-1234";
+estudiante.nombres = "María";
+estudiante.primerApellido = "Gómez";
+estudiante.segundoApellido = "Rodríguez";
+estudiante.fechaNacimiento = new DateOnly(2009, 5, 15);
+estudiante.celular = 72727272;
+estudiante.saludar();
+
+int cantidadEstudiantes = 2;
+List<Estudiante> estudiantes = new List<Estudiante>();
+for (int i = 1; i <= cantidadEstudiantes; i++)
+{
+    var itemEstudiante = new Estudiante();
+    Console.Write($"Ingrese el Nombre del estudiante {i}: ");
+    itemEstudiante.nombres = Console.ReadLine() ?? "";
+
+    Console.Write($"Ingrese el Primer Apellido del estudiante {i}: ");
+    itemEstudiante.primerApellido = Console.ReadLine() ?? "";
+
+    Console.Write($"Ingrese el Carnet Universitario del estudiante {i}: ");
+    itemEstudiante.carnetUniversitario = Console.ReadLine() ?? "";
+
+    estudiantes.Add(itemEstudiante);
+}
+
+foreach (var itemEstudiante in estudiantes) 
+{
+    itemEstudiante.saludar();
+}

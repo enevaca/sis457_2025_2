@@ -12,3 +12,4 @@ D:\usfx\SIS457\sis457_2025_2\Demo\DemoConsola\obj\Debug\net9.0\refint\DemoConsol
 D:\usfx\SIS457\sis457_2025_2\Demo\DemoConsola\obj\Debug\net9.0\DemoConsola.pdb
 D:\usfx\SIS457\sis457_2025_2\Demo\DemoConsola\obj\Debug\net9.0\DemoConsola.genruntimeconfig.cache
 D:\usfx\SIS457\sis457_2025_2\Demo\DemoConsola\obj\Debug\net9.0\ref\DemoConsola.dll
+D:\usfx\SIS457\sis457_2025_2\Demo\DemoConsola\obj\Debug\net9.0\DemoConsola.sourcelink.json
