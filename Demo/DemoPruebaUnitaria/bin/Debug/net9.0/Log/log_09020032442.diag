@@ -1,0 +1,16 @@
+2025-09-02T00:18:32.4467448+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.4.3+c252b64ad913ea9411fc5d17bfd5580d2d061497
+2025-09-02T00:18:32.4630505+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2025-09-02T00:18:32.4640669+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2025-09-02T00:18:32.4640705+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 00:18:32.423
+2025-09-02T00:18:32.4654276+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 20272
+2025-09-02T00:18:32.4654513+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 9.0.8
+2025-09-02T00:18:32.4654627+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.8\System.Private.CoreLib.dll
+2025-09-02T00:18:32.4654741+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2025-09-02T00:18:32.4654763+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: D:\usfx\SIS457\sis457_2025_2\Demo\DemoPruebaUnitaria\bin\Debug\net9.0\DemoPruebaUnitaria.dll
+2025-09-02T00:18:32.4655608+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory D:\usfx\SIS457\sis457_2025_2\Demo\DemoPruebaUnitaria\bin\Debug\net9.0\Log --results-directory D:\usfx\SIS457\sis457_2025_2\Demo\TestResults --client-port 58994'
+2025-09-02T00:18:32.4666135+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2025-09-02T00:18:32.4862101+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2025-09-02T00:18:32.4890896+00:00 Microsoft.Testing.Platform.Configurations.JsonConfigurationSource+JsonConfigurationProvider INFORMATION Config file 'D:\usfx\SIS457\sis457_2025_2\Demo\DemoPruebaUnitaria\bin\Debug\net9.0\DemoPruebaUnitaria.testconfig.json' not found.
+2025-09-02T00:18:32.4903831+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable:  VSTest mode: False
+2025-09-02T00:18:32.6215493+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: 'MSTestExtension' Version: '3.6.4' DisplayName: 'MSTest' Description: 'MSTest Framework for Microsoft Testing Platform'
+2025-09-02T00:18:32.7010017+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter INFORMATION Probar paralelización habilitada para D:\usfx\SIS457\sis457_2025_2\Demo\DemoPruebaUnitaria\bin\Debug\net9.0\DemoPruebaUnitaria.dll (Trabajos: 8, Ámbito: MethodLevel)

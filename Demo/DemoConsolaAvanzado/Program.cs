@@ -1,4 +1,13 @@
-﻿using DemoConsolaAvanzado;
+﻿using DemoBiblioteca;
+using DemoConsolaAvanzado;
+
+// Biblioteca de Clases
+int suma = Calculadora.sumar(10, 30);
+int resta = Calculadora.restar(20, 14);
+int mult = Calculadora.multplicar(6, 9);
+int division = Calculadora.dividir(10, 4);
+int modulo = Calculadora.modulo(10, 4);
+Console.WriteLine($"Suma: {suma}, Resta: {resta}, Multiplicación: {mult}, División: {division}");
 
 // Delegados
 static string revertirCadena(string cadena)
@@ -15,6 +24,13 @@ void imprimir(string cadena)
 Action<string> imp = imprimir;
 imp("Fundamentos de la Programación");
 
+Func<int, int, int> multiplicacion = (v1, v2) => v1 * v2;
+int valor = multiplicacion(7, 5);
+Console.WriteLine($"Func. El resultado es {valor}");
+
+Predicate<int> mayorDeEdad = e => e >= 18;
+bool esMayorEdad = mayorDeEdad(21);
+Console.WriteLine($"Predicate. Mayor de Edad: {(esMayorEdad ? "SI" : "NO")}");
 
 // Genéricos
 Generico<int, string, Automovil> generico = new Generico<int, string, Automovil>();
