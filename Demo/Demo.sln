@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoBiblioteca", "DemoBibli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoPruebaUnitaria", "DemoPruebaUnitaria\DemoPruebaUnitaria.csproj", "{60571BA3-FE0D-4FA5-A732-1586D1C5DB59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TresEnRaya", "TresEnRaya\TresEnRaya.csproj", "{D1895EA4-1F03-4C9E-BBDE-F724616662CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{60571BA3-FE0D-4FA5-A732-1586D1C5DB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60571BA3-FE0D-4FA5-A732-1586D1C5DB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60571BA3-FE0D-4FA5-A732-1586D1C5DB59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1895EA4-1F03-4C9E-BBDE-F724616662CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1895EA4-1F03-4C9E-BBDE-F724616662CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1895EA4-1F03-4C9E-BBDE-F724616662CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1895EA4-1F03-4C9E-BBDE-F724616662CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
