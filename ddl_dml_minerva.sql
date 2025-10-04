@@ -28,6 +28,7 @@ CREATE TABLE UnidadMedida (
 CREATE TABLE Producto (
   id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
   idUnidadMedida INT NOT NULL,
+  codigo VARCHAR(20) NOT NULL,
   descripcion VARCHAR(200) NOT NULL,
   saldo DECIMAL NOT NULL DEFAULT 0,
   precioVenta DECIMAL NOT NULL CHECK (precioVenta > 0),
@@ -77,3 +78,61 @@ CREATE TABLE CompraDetalle (
   CONSTRAINT fk_CompraDetalle_Compra FOREIGN KEY (idCompra) REFERENCES Compra(id),
   CONSTRAINT fk_CompraDetalle_Producto FOREIGN KEY (idProducto) REFERENCES Producto(id)
 );
+
+ALTER TABLE UnidadMedida ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE UnidadMedida ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE UnidadMedida ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Producto ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Producto ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Producto ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Proveedor ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Proveedor ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Proveedor ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Empleado ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Empleado ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Empleado ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Usuario ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Usuario ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Usuario ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE Compra ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Compra ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Compra ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+ALTER TABLE CompraDetalle ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE CompraDetalle ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE CompraDetalle ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: Eliminado, 0: Inactivo, 1: Activo
+
+GO
+DROP PROC IF EXISTS paProductoListar;
+GO
+CREATE PROC paProductoListar @parametro VARCHAR(50)
+AS
+  SELECT p.id, p.idUnidadMedida,p.codigo,p.descripcion,um.descripcion AS unidadMedida,
+		 p.saldo,p.precioVenta,p.usuarioRegistro,p.fechaRegistro,p.estado
+  FROM Producto p
+  INNER JOIN UnidadMedida um ON um.id = p.idUnidadMedida
+  WHERE p.estado>-1 AND p.codigo+p.descripcion+um.descripcion LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY p.estado DESC, p.descripcion ASC;
+
+EXEC paProductoListar 'bond carta';
+
+-- DML
+INSERT INTO UnidadMedida(descripcion)
+VALUES ('Caja'), ('Docena'), ('Metro'), ('Paquete'), ('Pliego'),('Unidad');
+
+--SELECT * FROM UnidadMedida;
+
+INSERT INTO Producto(codigo,descripcion,idUnidadMedida,saldo,precioVenta)
+VALUES ('BL006', 'Bolígrafo Pilot Color Azul',1,0,22);
+
+INSERT INTO Producto(codigo,descripcion,idUnidadMedida,saldo,precioVenta)
+VALUES ('PB005', 'Papel Bond Tamaño Carta',4,0,42);
+
+INSERT INTO Producto(codigo,descripcion,idUnidadMedida,saldo,precioVenta)
+VALUES ('PB004', 'Papel Bond Tamaño Oficio',4,0,48);
+
