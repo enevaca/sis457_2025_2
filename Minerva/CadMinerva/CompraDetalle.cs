@@ -20,6 +20,9 @@ namespace CadMinerva
         public decimal cantidad { get; set; }
         public decimal precioUnitario { get; set; }
         public decimal total { get; set; }
+        public string usuarioRegistro { get; set; }
+        public System.DateTime fechaRegistro { get; set; }
+        public short estado { get; set; }
     
         public virtual Compra Compra { get; set; }
         public virtual Producto Producto { get; set; }
