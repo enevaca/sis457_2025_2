@@ -136,3 +136,10 @@ VALUES ('PB005', 'Papel Bond Tamaño Carta',4,0,42);
 INSERT INTO Producto(codigo,descripcion,idUnidadMedida,saldo,precioVenta)
 VALUES ('PB004', 'Papel Bond Tamaño Oficio',4,0,48);
 
+INSERT INTO Empleado(cedulaIdentidad,nombres,primerApellido,segundoApellido,fechaNacimiento,direccion,celular,cargo)
+VALUES ('123456', 'Juan', 'Pérez', 'López', '2003-12-25', 'Calle Loa N° 50', 71717171, 'Administrador');
+
+INSERT INTO Usuario(idEmpleado,usuario,clave)
+VALUES (1, 'jperez', 'I0HCOO/NSSY6WOS9POP5XW=='); -- Clave: hola123
+
+SELECT * FROM Usuario;
