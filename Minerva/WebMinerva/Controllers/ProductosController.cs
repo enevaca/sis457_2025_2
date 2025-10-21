@@ -21,7 +21,10 @@ namespace WebMinerva.Controllers
         // GET: Productos
         public async Task<IActionResult> Index()
         {
-            var minervaContext = _context.Producto.Include(p => p.IdUnidadMedidaNavigation);
+            var minervaContext = _context.Producto
+                .Include(p => p.IdUnidadMedidaNavigation)
+                .Where(p => p.Estado == 1)
+                .OrderBy(p => p.Descripcion);
             return View(await minervaContext.ToListAsync());
         }
 
@@ -47,8 +50,15 @@ namespace WebMinerva.Controllers
         // GET: Productos/Create
         public IActionResult Create()
         {
-            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id");
+            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion");
             return View();
+        }
+
+        private bool validar(Producto producto)
+        {
+            return !string.IsNullOrWhiteSpace(producto.Codigo) ||
+                !string.IsNullOrWhiteSpace(producto.Descripcion) ||
+                producto.IdUnidadMedida == 0 || producto.PrecioVenta == 0;
         }
 
         // POST: Productos/Create
@@ -56,15 +66,18 @@ namespace WebMinerva.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdUnidadMedida,Codigo,Descripcion,Saldo,PrecioVenta,UsuarioRegistro,FechaRegistro,Estado")] Producto producto)
+        public async Task<IActionResult> Create(Producto producto)
         {
-            if (ModelState.IsValid)
+            if (validar(producto))
             {
+                producto.UsuarioRegistro = "admin";
+                producto.FechaRegistro = DateTime.Now;
+                producto.Estado = 1;
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdUnidadMedida);
+            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdUnidadMedida);
             return View(producto);
         }
 
@@ -81,7 +94,7 @@ namespace WebMinerva.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdUnidadMedida);
+            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdUnidadMedida);
             return View(producto);
         }
 
@@ -97,7 +110,7 @@ namespace WebMinerva.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (validar(producto))
             {
                 try
                 {
@@ -117,7 +130,7 @@ namespace WebMinerva.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdUnidadMedida);
+            ViewData["IdUnidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdUnidadMedida);
             return View(producto);
         }
 
@@ -148,7 +161,9 @@ namespace WebMinerva.Controllers
             var producto = await _context.Producto.FindAsync(id);
             if (producto != null)
             {
-                _context.Producto.Remove(producto);
+                producto.Estado = -1;
+                _context.Update(producto);
+                //_context.Producto.Remove(producto);
             }
 
             await _context.SaveChangesAsync();
