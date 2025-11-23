@@ -10,50 +10,52 @@
 <p>
     <a asp-action="Create"><i class="fa fa-plus" aria-hidden="true"></i> Crear Nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Descripción</th>
-            <th>Unidad de Medida</th>
-            <th>Saldo</th>
-            <th>Precio de Venta</th>
-            <th>Usuario Registro</th>
-            <th>Fecha Registro</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdUnidadMedidaNavigation.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Saldo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrecioVenta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UsuarioRegistro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaRegistro)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" title="Ver"><i class="fa fa-eye" aria-hidden="true"></i></a> |
-                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                </td>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Unidad de Medida</th>
+                <th>Saldo</th>
+                <th>Precio de Venta</th>
+                <th>Usuario Registro</th>
+                <th>Fecha Registro</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUnidadMedidaNavigation.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Saldo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecioVenta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UsuarioRegistro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaRegistro)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Ver"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

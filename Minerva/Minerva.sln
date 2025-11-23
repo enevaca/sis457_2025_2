@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClnMinerva", "ClnMinerva\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMinerva", "WebMinerva\WebMinerva.csproj", "{67C54FA7-2A1D-46DB-8610-13B67A5DF234}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMinerva2", "WebMinerva2\WebMinerva2.csproj", "{EF300886-A8B4-4430-B183-497C07AD0110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{67C54FA7-2A1D-46DB-8610-13B67A5DF234}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67C54FA7-2A1D-46DB-8610-13B67A5DF234}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67C54FA7-2A1D-46DB-8610-13B67A5DF234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF300886-A8B4-4430-B183-497C07AD0110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF300886-A8B4-4430-B183-497C07AD0110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF300886-A8B4-4430-B183-497C07AD0110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF300886-A8B4-4430-B183-497C07AD0110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
